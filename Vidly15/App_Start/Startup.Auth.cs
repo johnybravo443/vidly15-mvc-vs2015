@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Vidly15.Models;
+using System.Configuration;
 
 namespace Vidly15
 {
@@ -55,8 +56,8 @@ namespace Vidly15
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "645841485985018",
-               appSecret: "80aa7c23e53ee73404dede1cfbe6770d");
+               appId: ConfigurationManager.AppSettings["FacebookAppId"],
+               appSecret: ConfigurationManager.AppSettings["FacebookAppSecret"]);
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
